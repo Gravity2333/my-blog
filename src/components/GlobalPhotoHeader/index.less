@@ -1,0 +1,70 @@
+.carouselContainer {
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden; /* 防止图片超出容器 */
+  height: 400px;
+}
+
+.slide {
+  position: relative;
+}
+
+.slide img {
+  width: 100vw; /* 让图片宽度适应容器 */
+  height: 400px;
+  object-fit: cover; /* 保持图片比例，裁剪图片超出部分 */
+}
+
+.textOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* 打字效果的文字动画 */
+.typingEffect {
+  width: 0;
+  overflow: hidden;
+  font-size: 30px;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+  white-space: nowrap;
+  border-right: 3px solid #fff; /* 光标效果 */
+  animation: typing 2s steps(30) 1s forwards, blink-caret 0.75s step-end infinite;
+}
+
+/* 打字动画 */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* 光标闪烁效果 */
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: #fff;
+  }
+}
+
+/* 为每句话设置不同的显示延迟 */
+.sentence1 {
+  animation-delay: 0s;
+}
+
+.sentence2 {
+  animation-delay: 2s; /* 5秒后显示第二句 */
+}
+
+.sentence3 {
+  animation-delay: 4s; /* 10秒后显示第三句 */
+}

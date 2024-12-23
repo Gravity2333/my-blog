@@ -1,0 +1,41 @@
+@import "@/styles.less";
+
+@text-color: #fff; /* 文字颜色 */
+@link-color: #4caf50; /* 链接颜色 */
+@link-hover-color: #45a049; /* 链接悬停颜色 */
+
+strong {
+  color: var(--header-font-color);
+}
+
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 20px;
+
+  justify-content: space-between;
+  width: 100%;
+  width: 85%;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+}
+
+.leftSide {
+  width: 65%; /* 左侧占 65% */
+}
+
+.rightSide {
+  width: 30%; /* 右侧占 30% */
+}
+
+@media (max-width: 768px) {
+  .mainLayout {
+    flex-direction: column;
+  }
+
+  .leftSide,
+  .rightSide {
+    width: 100%;
+  }
+}
