@@ -11,7 +11,7 @@ export default {
       name: "首页",
       component: "../src/pages/Home",
       cover: {
-        name: "sunset",
+        name: "plant",
         title: "blog coderliu",
         text: "永远不要相信直觉！",
       },
@@ -21,7 +21,7 @@ export default {
       name: "文章",
       component: "../src/pages/Docs",
       cover: {
-        name: "smokeForest",
+        name: "sky",
         title: "开发文档",
         text: "开发文档!",
       },

@@ -1,0 +1,233 @@
+/* 薄荷绿色 */
+/* 浅灰白 */
+/* 深灰色 */
+/* 珊瑚红 */
+:root {
+  --main-color: #4a90e2;
+  --header-color: #f5f7fa;
+  --header-font-color: #808080;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  color: #333;
+  color: #fff;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  background-color: #f5f7fa;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* a 标签基本样式 */
+a {
+  position: relative;
+  /* 使得伪元素可以定位 */
+  color: var(--main-color);
+  text-decoration: none;
+}
+/* 悬浮时的横线效果 */
+a::after {
+  position: absolute;
+  bottom: -2px;
+  /* 横线位置，距离文本底部2px */
+  left: 0;
+  width: 0;
+  height: 2px;
+  /* 横线的高度 */
+  background-color: #f5f7fa;
+  /* 横线的颜色 */
+  transition: width 0.3s ease;
+  /* 动画效果：横线的宽度 */
+  content: "";
+}
+/* 悬浮时，横线宽度变化 */
+a:hover::after {
+  width: 100%;
+  /* 横线的宽度变为100% */
+}
+/* 文字颜色 */
+/* 链接颜色 */
+/* 链接悬停颜色 */
+strong {
+  color: var(--header-font-color);
+}
+.z8CsoF1q8deYjVs0JCz1 {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+  width: 85%;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+}
+.OtqYAadO12WsjCUPRFzY {
+  width: 65%;
+  /* 左侧占 65% */
+}
+.kwJcJTNFyJRn2XVX1AEw {
+  width: 30%;
+  /* 右侧占 30% */
+}
+@media (max-width: 768px) {
+  .eKrYL0kEfrbpnVVFtFfj {
+    flex-direction: column;
+  }
+  .OtqYAadO12WsjCUPRFzY,
+  .kwJcJTNFyJRn2XVX1AEw {
+    width: 100%;
+  }
+}
+
+.LTNcCiUg0lFa2F7dH7t1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.Lxo_8NBpRedj1cmGh2fb {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+.Lxo_8NBpRedj1cmGh2fb h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+.Lxo_8NBpRedj1cmGh2fb ul {
+  list-style: none;
+  padding: 0;
+}
+.Lxo_8NBpRedj1cmGh2fb ul li {
+  margin: 10px 0;
+}
+.Lxo_8NBpRedj1cmGh2fb ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+.Lxo_8NBpRedj1cmGh2fb ul li a:hover {
+  text-decoration: underline;
+}
+
+.lk8UIPBEC1pcbuDJ5pjx {
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.vuNvotsHjtQy00Wa3KfP {
+  text-align: center;
+}
+.a3dYEhx8HVu3DA_obRSK {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.lk8UIPBEC1pcbuDJ5pjx h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+.lk8UIPBEC1pcbuDJ5pjx p {
+  font-size: 16px;
+  color: #666;
+}
+.lk8UIPBEC1pcbuDJ5pjx p:last-child {
+  font-style: italic;
+}
+.pJPX8Wpt9Wwn3_jAbB4S {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Arial", sans-serif;
+}
+/* 头像和基本信息 */
+.ianwiB87dIDIwgbViBlX {
+  margin-bottom: 20px;
+}
+.a3dYEhx8HVu3DA_obRSK {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.g5TaOc6smuf0BANJpYpE {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+.uElPbtO9yyeH4i9UGjn8 {
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+}
+/* 统计信息 */
+.djzgNAxF2SEQkgJd6Fn0 {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  padding: 10px 0;
+}
+.FpK8f4fsQrLSxOXCH5DX {
+  text-align: center;
+}
+.pigw8a1gKPtebsyfBXOA {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.CN39DdM_9K3t9Tvmxtbd {
+  font-size: 12px;
+  color: #999;
+}
+/* 按钮和社交链接 */
+.hxcpBAflcRAwmCVsZqXh {
+  margin-top: 20px;
+}
+.HYyyR_nXBUeTpLckuAkf {
+  background: var(--header-font-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  width: 80%;
+}
+.HYyyR_nXBUeTpLckuAkf:hover {
+  background: var(--header-font-color);
+}
+.hADwwmaQnwjEkyIMtN7Q {
+  margin-top: 10px;
+}
+.hADwwmaQnwjEkyIMtN7Q a {
+  margin: 0 10px;
+  font-size: 18px;
+  color: #333;
+  transition: color 0.3s;
+}
+.hADwwmaQnwjEkyIMtN7Q a:hover {
+  color: var(--header-font-color);
+}
+

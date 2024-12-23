@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
   mode: "production",
   context: path.resolve(__dirname, "./"),
@@ -113,11 +113,20 @@ module.exports = {
       filename: "css/[name].[contenthash].css", // 提取的 CSS 文件名
       chunkFilename: "css/[id].css",
     }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.resolve(__dirname,'./src/assets'),
+    //       to: 'assets'
+    //     }
+    //   ]
+    // })
   ],
   devServer: {
     port: 3000,
     hot: false,
     historyApiFallback: true, // 开启 historyApiFallback
     open: true,
+    static: [path.resolve(__dirname,"./src/assets")],
   },
 };

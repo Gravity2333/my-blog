@@ -48,14 +48,14 @@ p {
   color: #333;
 }
 strong {
-  color: #4caf50;
+  color: var(--main-color);
 }
 .ghW5aKrHXnwN5LMapjOO,
 .PSLRvc_lWfYuXnWXkIAL {
   display: inline-block;
   margin-top: 15px;
   padding: 10px 20px;
-  background-color: #4caf50;
+  background-color: var(--main-color);
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
