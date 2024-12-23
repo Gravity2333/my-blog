@@ -6,4 +6,4 @@ declare module '*.jpeg';
 declare module '*.webp'
 declare module '*.svg'
 declare module '*/config/*'
-declare module '@config/router.js'
+declare module '*/config/router.js'
