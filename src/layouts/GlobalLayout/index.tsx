@@ -35,7 +35,7 @@ export default function GlobalLayout({ location }: any) {
 
   useLayoutEffect(() => {
     const handleScroll = () => {
-      if (contenRef.current.scrollTop > 400) {
+      if (contenRef.current.scrollTop > 350) {
         // 滚动超过100px
         setIsScrolled(true);
       } else {
