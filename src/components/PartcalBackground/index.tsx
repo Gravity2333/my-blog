@@ -11,10 +11,6 @@ const ParticleBackground = () => {
     })
   }, []);
 
-  const particlesLoaded = (container: any) => {
-    console.log(container);
-  };
-
   return (
     <div
       style={{
@@ -29,7 +25,6 @@ const ParticleBackground = () => {
     >
       <Particles
         id="tsparticles"
-        particlesLoaded={particlesLoaded as any}
         options={{
           particles: {
             color: {

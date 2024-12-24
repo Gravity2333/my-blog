@@ -11,9 +11,9 @@ export default {
       name: "首页",
       component: "../src/pages/Home",
       cover: {
-        name: "darkForest",
+        name: "plant",
         title: "blog coderliu",
-        text: "不要相信直觉！",
+        text: "没什么是理所应当的，不要相信直觉！",
       },
     },
     {
@@ -23,31 +23,59 @@ export default {
       cover: {
         name: "code",
         title: "仓库",
-        text: "",
+        text: "知识与创意的存储空间",
       },
     },
     {
       path: "/articles",
       name: "文章",
-      component: "../src/pages/Docs",
       cover: {
         name: "sunrise",
         title: "博客",
-        text: "",
+        text: "在无声的文字中留下你与世界互动的痕迹。",
       },
+      children: [
+        {
+          path: "/articles",
+          redirect: "/articles/list",
+        },
+        {
+          path: "/articles/list",
+          name: "列表",
+          component: "../src/pages/Articles",
+        },
+        {
+          path: "/articles/:id/preview",
+          name: "内容",
+          component: "../src/pages/Articles/components/Preview",
+        },
+        {
+          component: "../src/components/NotFoundPage", 
+          cover: {
+            name: "PINEFOREST",
+            title: "走错了？",
+            text: "history.go(-1)!!",
+          },
+        },
+      ]
     },
     {
       path: "/about",
       name: "关于作者",
       component: "../src/pages/About",
       cover: {
-        name: "plant",
+        name: "darkForest",
         title: "关于作者",
-        text: "",
+        text: "你好，很高兴认识你！",
       },
     },
     {
-      component: "../src/components/NotFoundPage",
+      component: "../src/components/NotFoundPage", 
+      cover: {
+        name: "PINEFOREST",
+        title: "走错了？",
+        text: "history.go(-1)!!",
+      },
     },
   ],
 };

@@ -1,24 +1,31 @@
 import React from "react";
 import useHistory from "@/libs/router/hooks/useHistory";
-import styles from './index.less'
+import styles from "./index.less"; // 引入样式文件
 
-const NotFoundPage = () => {
+const NotFoundPage: React.FC = () => {
   const history = useHistory();
+
+  // 返回首页函数
+  const handleGoHome = () => {
+    history.push("/"); // 跳转到首页
+  };
+
   return (
-    <div className={styles["not-found-page"]}>
-      <div className={styles["not-found-content"]}>
-        <div className={styles["not-found-text"]}>
-          <h1>404</h1>
-          <h2>Oops! Page Not Found</h2>
-          <p>It seems like the page you're looking for doesn't exist.</p>
-          <button
-            onClick={() => {
-              history.push("/home");
-            }}
-            className={styles["back-home-button"]}
-          >
-            Go Back Home
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <h1 className={styles.title}>404</h1>
+        <p className={styles.subtitle}>页面未找到</p>
+        <p className={styles.description}>
+          抱歉，您访问的页面不存在。可能是链接错误或页面已被删除。
+        </p>
+        
+        <div className={styles.actions}>
+          <button onClick={()=>{
+            history.push('/')
+          }} className={styles.homeButton}>
+            返回首页
           </button>
+          {/* 你也可以添加更多链接，如搜索、查看最新文章等 */}
         </div>
       </div>
     </div>

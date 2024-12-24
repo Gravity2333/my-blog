@@ -41,6 +41,7 @@ export type MainColor = {
 };
 
 export default function GlobalLayout({ location,match }: any) {
+  // console.log(routes)
   const history = useHistory();
   const contenRef = useRef<any>();
   const [coverObj, setCoverObj] = useState<CoverParams>(DEFAULT_COVER);
@@ -129,7 +130,7 @@ export default function GlobalLayout({ location,match }: any) {
             <div className={styles["header__tab"]}>
               {(routes?.children || [])
                 .filter((route: any) => {
-                  return !!route.component;
+                  return !!route.component||!!route.children;
                 })
                 .map((route: any) => {
                   return (

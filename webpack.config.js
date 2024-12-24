@@ -77,6 +77,13 @@ module.exports = {
           filename: "images/[name].[hash:8][ext]",
         },
       },
+      // 解析md
+      {
+        test: /\.md$/,
+        use: [
+          'raw-loader',  // 使 .md 文件内容以字符串的形式加载
+        ]
+      },
     ],
   },
 

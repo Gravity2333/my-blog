@@ -27,11 +27,13 @@ export default function Route(props: {
          *   如果没有传递path参数，直接算是匹配上上层match
          *   传递了，直接调用matchPath计算是否匹配
          */
+
         const match = props.computedMatch
           ? props.computedMatch
           : props.path
           ? matchPath(location.pathname, props)
           : context.match;
+
         /** 匹配上了渲染，并且重新下发新的match 嵌套router*/
         return match ? (
           <RouteCore
@@ -68,6 +70,7 @@ function RouteCore({
     match,
     routeObj
   };
+
   /** 原版的渲染使用三元运算 不直观，这里改成if */
   const outlet = (() => {
     /** 如果route有children 直接渲染 */
