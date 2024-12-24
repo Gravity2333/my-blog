@@ -7,6 +7,7 @@ import SUN_SET from "!!file-loader?name=static/[name].[ext]!./sunset.webp";
 import PLANT from "!!file-loader?name=static/[name].[ext]!./plant.jpg";
 import LIFE from "!!file-loader?name=static/[name].[ext]!./pexels.jpg";
 import SUNRISE from "!!file-loader?name=static/[name].[ext]!./sunrise.jpg";
+import Code from "!!file-loader?name=static/[name].[ext]!./code.jpg";
 
 export const __DEFAULT_BACKGROUNDS__ = {
   sky: SKY,
@@ -18,4 +19,5 @@ export const __DEFAULT_BACKGROUNDS__ = {
   sunset: SUN_SET,
   sunrise: SUNRISE,
   mountain: TURBINES,
+  code: Code
 };

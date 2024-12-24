@@ -16,6 +16,7 @@
   text-align: center;
 }
 
+/* 用户头像样式 */
 .avatar {
   width: 120px;
   height: 120px;
@@ -23,6 +24,7 @@
   margin-bottom: 20px;
 }
 
+/* 用户姓名 */
 .name {
   font-size: 28px;
   font-weight: 600;
@@ -30,9 +32,27 @@
   margin: 10px 0;
 }
 
+/* 用户描述 */
 .description {
   font-size: 16px;
   color: #666;
+  margin-bottom: 20px;
+}
+
+/* 兴趣爱好部分样式 */
+.interestsContainer {
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.interests {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
 }
 
 /* 右侧信息样式 */
@@ -41,6 +61,7 @@
   padding-left: 40px;
 }
 
+/* 社交链接样式 */
 .socialLinks {
   margin-bottom: 30px;
 }
@@ -61,6 +82,7 @@
   background-color: var(--header-font-color);
 }
 
+/* 置顶项目标题样式 */
 .sectionTitle {
   font-size: 24px;
   font-weight: 700;
@@ -84,9 +106,10 @@
 }
 
 .projectTitle {
+  cursor: pointer;
   font-size: 20px;
   font-weight: 600;
-  color:var(--header-font-color);
+  color: var(--header-font-color);
 }
 
 .projectDescription {
@@ -107,14 +130,4 @@
 
 .projectLink:hover {
   background-color: var(--header-font-color);
-}
-
-/* 兴趣爱好部分 */
-.interests {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
-  color: #555;
 }

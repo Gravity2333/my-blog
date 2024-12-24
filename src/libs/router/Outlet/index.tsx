@@ -1,6 +1,7 @@
+import React from "react";
 import useOutlet, { OutletContextTypes } from "../hooks/useOutlet";
 
-export default function Outlet(props: OutletContextTypes) {
+export default React.memo(function Outlet(props: OutletContextTypes) {
   const outlet = useOutlet(props);
   return outlet
-}
+})

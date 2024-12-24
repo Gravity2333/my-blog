@@ -17,12 +17,22 @@ export default {
       },
     },
     {
+      path: "/repositories",
+      name: "仓库",
+      component: "../src/pages/Projects",
+      cover: {
+        name: "code",
+        title: "仓库",
+        text: "",
+      },
+    },
+    {
       path: "/articles",
       name: "文章",
       component: "../src/pages/Docs",
       cover: {
         name: "sunrise",
-        title: "开发文档",
+        title: "博客",
         text: "",
       },
     },
