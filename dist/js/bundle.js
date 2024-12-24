@@ -365,7 +365,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + chunkId + "-" + {"vendors-node_modules_react-slick_lib_index_js-node_modules_slick-carousel_slick_slick-theme_c-dbf8c1":"7bfe2a5a","src_components_PartcalBackground_index_tsx-src_layouts_GlobalLayout_index_tsx-node_modules_sl-0db5fa":"06731bc1","src_pages_Home_index_tsx":"c7a84ebe","vendors-node_modules_react-icons_fa_index_mjs":"e2d8030a","src_pages_Projects_index_tsx":"ca00e266","src_pages_Docs_index_tsx":"e68d57e6","src_pages_About_index_tsx":"f7dfd934","src_components_NotFoundPage_index_tsx":"24d70ee7"}[chunkId] + ".js";
+/******/ 			return "js/" + chunkId + "-" + {"vendors-node_modules_react-slick_lib_index_js-node_modules_slick-carousel_slick_slick-theme_c-dbf8c1":"7bfe2a5a","src_components_PartcalBackground_index_tsx-src_layouts_GlobalLayout_index_tsx-node_modules_sl-0db5fa":"8021736d","src_pages_Home_index_tsx":"2c5771ac","vendors-node_modules_react-icons_fa_index_mjs":"e2d8030a","src_pages_Projects_index_tsx":"ca00e266","src_pages_Docs_index_tsx":"e68d57e6","src_pages_About_index_tsx":"f7dfd934","src_components_NotFoundPage_index_tsx":"24d70ee7"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	

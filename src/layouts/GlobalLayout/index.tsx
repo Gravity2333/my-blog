@@ -14,6 +14,7 @@ import { __DEFAULT_BACKGROUNDS__ } from "@/assets/backgrounds/desc";
 import { pathToRegexp } from "path-to-regexp";
 import { getThemeColor } from "@/utils/color";
 import ParticleBackground from "@/components/PartcalBackground";
+import LoadingPage from "@/components/LoadingPage";
 
 const DEFAULT_COVER: CoverParams = {
   cover: __DEFAULT_BACKGROUNDS__["sunset"],
@@ -22,8 +23,8 @@ const DEFAULT_COVER: CoverParams = {
 };
 
 export const ThemeContext = createContext<MainColor>({
-  dominantColor: '#4a90e2',
-  palette: []
+  dominantColor: "#4a90e2",
+  palette: [],
 } as any);
 
 function parseRouteCover(cover: Record<string, any>) {
@@ -39,17 +40,18 @@ export type MainColor = {
   palette: string[];
 };
 
-export default function GlobalLayout({ location }: any) {
+export default function GlobalLayout({ location,match }: any) {
   const history = useHistory();
   const contenRef = useRef<any>();
   const [coverObj, setCoverObj] = useState<CoverParams>(DEFAULT_COVER);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [loading, setLoading] = useState(true);
+  const [currentMatch,setCurrentMatch] = useState<any>()
   const [colorObj, setColorObj] = useState<MainColor>({
-    dominantColor: '#4a90e2',
-    palette: []
+    dominantColor: "#4a90e2",
+    palette: [],
   });
-
+  const regexpMap = useRef<any>(new Map());
   useLayoutEffect(() => {
     const handleScroll = () => {
       if (contenRef.current.scrollTop > 350) {
@@ -74,17 +76,23 @@ export default function GlobalLayout({ location }: any) {
   }, [coverObj]);
 
   useEffect(() => {
+    setLoading(true);
     for (const r of routes?.children as any[]) {
-      if (
-        pathToRegexp(r.path || "", { end: false }).regexp.exec(
-          location.pathname
-        )
-      ) {
+      let regexp = regexpMap.current?.get(r.path);
+      if (!regexp) {
+        regexp = pathToRegexp(r.path || "", { end: false }).regexp;
+        regexpMap.current.set(r.path, regexp);
+      }
+      if (regexp.exec(location.pathname)) {
         if (r.cover) {
-          return setCoverObj(parseRouteCover(r.cover));
+          setLoading(false);
+          setCurrentMatch(r.path)
+          setCoverObj(parseRouteCover(r.cover));
+          return 
         }
       }
     }
+    setLoading(false);
   }, [location]);
 
   return (
@@ -131,6 +139,7 @@ export default function GlobalLayout({ location }: any) {
                         e.preventDefault();
                         history.push(route.path);
                       }}
+                      className={route.path === currentMatch?styles.active:''}
                     >
                       {route.name || route.path}
                     </a>
@@ -141,7 +150,7 @@ export default function GlobalLayout({ location }: any) {
           <ParticleBackground />
           <div className={styles["content"]} ref={contenRef}>
             <GlobalPhtotHeader {...(coverObj as any)} />
-            <Outlet />
+            {loading ? <LoadingPage /> : <Outlet />}
           </div>
         </div>
       </ThemeContext.Provider>

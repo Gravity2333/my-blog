@@ -113,7 +113,7 @@ a::after {
   width: 0;
   height: 2px;
   /* 横线的高度 */
-  background-color: #f5f7fa;
+  background-color: #4a90e2;
   /* 横线的颜色 */
   transition: width 0.3s ease;
   /* 动画效果：横线的宽度 */

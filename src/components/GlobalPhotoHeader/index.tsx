@@ -30,18 +30,10 @@ const GlobalPhtotHeader: React.FC = ({
     pauseOnHover: true, // 鼠标悬停时暂停
     draggable: false
   };
-  const sliderRef = useRef<Slider | null>(null);
-
-  // 监听 cover 的变化
-  useEffect(() => {
-    if (sliderRef.current) {
-      sliderRef.current.forceUpdate(); // 强制切换到第一个幻灯片
-    }
-  }, [cover]); // 每次 cover 变化时触发
 
   return (
     <div className={styles.carouselContainer}>
-      <Slider ref={sliderRef} {...settings} adaptiveHeight>
+      <Slider {...settings} adaptiveHeight>
         <div className={styles.slide}>
           <img src={cover} alt="Slide 2" />
           <div key={`${title} ${text}`} className={styles.textOverlay}>
