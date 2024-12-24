@@ -28,6 +28,7 @@ const GlobalPhtotHeader: React.FC = ({
     arrows: false, // 不需要左右箭头
     adaptiveHeight: true, // 高度自适应
     pauseOnHover: true, // 鼠标悬停时暂停
+    draggable: false
   };
   const sliderRef = useRef<Slider | null>(null);
 

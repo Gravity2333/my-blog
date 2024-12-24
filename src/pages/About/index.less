@@ -1,102 +1,120 @@
-@bg-color: #f9f9f9;
-@header-bg: #333;
-@footer-bg: #282828;
-@text-color: #fff;
-@link-color: #4caf50;
-@link-hover-color: #45a049;
-
+/* 全局容器样式 */
 .container {
-  font-family: 'Arial', sans-serif;
-  background-color: @bg-color;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* 左侧信息样式 */
+.left {
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-}
-
-.header {
-  background-color: @header-bg;
-  color: @text-color;
-  padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  flex: 0,
 }
 
-.header h1 {
-  font-size: 3rem;
-  margin: 0;
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
 }
 
-.header p {
-  font-size: 1.2rem;
-  margin-top: 10px;
+.name {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin: 10px 0;
 }
 
-.content {
-  width: 100%;
-  padding: 40px;
-  margin-top: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  flex: 1;
-  overflow: auto;
+.description {
+  font-size: 16px;
+  color: #666;
 }
 
-.bio, .project, .contact {
+/* 右侧信息样式 */
+.right {
+  width: 65%;
+  padding-left: 40px;
+}
+
+.socialLinks {
   margin-bottom: 30px;
 }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #333;
-}
-
-strong {
-  color: var(--main-color);
-}
-
-.projectLink, .contactLink {
+.socialLink {
   display: inline-block;
-  margin-top: 15px;
+  margin-right: 20px;
   padding: 10px 20px;
-  background-color: var(--main-color);
-  color: #fff;
+  background-color: var(--header-font-color);
+  color: white;
+  border-radius: 50px;
   text-decoration: none;
-  border-radius: 5px;
+  font-weight: 600;
   transition: background-color 0.3s;
 }
 
-.projectLink:hover, .contactLink:hover {
-  background-color: @link-hover-color;
+.socialLink:hover {
+  background-color: var(--header-font-color);
 }
 
-@media (max-width: 768px) {
-  .header h1 {
-    font-size: 2rem;
-  }
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--header-font-color);
+  padding-bottom: 5px;
+}
 
-  .header p {
-    font-size: 1rem;
-  }
+/* 项目样式 */
+.projects {
+  margin-bottom: 40px;
+}
 
-  .content {
-    padding: 20px;
-  }
+.project {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
 
-  h2 {
-    font-size: 1.5rem;
-  }
+.projectTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color:var(--header-font-color);
+}
 
-  p {
-    font-size: 1rem;
-  }
+.projectDescription {
+  color: #666;
+  margin: 10px 0;
+}
+
+.projectLink {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--header-font-color);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.projectLink:hover {
+  background-color: var(--header-font-color);
+}
+
+/* 兴趣爱好部分 */
+.interests {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #555;
 }

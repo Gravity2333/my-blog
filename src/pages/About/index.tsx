@@ -1,57 +1,86 @@
-import React from 'react';
-import styles from './index.less';
-
-const About = () => {
+import React from "react";
+import styles from "./index.less"; // 引入CSS模块
+import AVATOR from "../../assets/avator.jpeg";
+const AboutMe: React.FC = () => {
   return (
     <div className={styles.container}>
-      {/* <header className={styles.header}>
-        <h1>关于作者</h1>
-        <p>了解作者及其开源项目</p>
-      </header> */}
-      
-      <div className={styles.content}>
-        <section className={styles.bio}>
-          <h2>作者简介</h2>
-          <p>
-            您好，我是 <strong>Gravity2333</strong>，一名热爱编程的开发者，专注于前端技术。
-            通过不断学习和实践，我希望能为开源社区贡献更多有用的工具和库。
-            本项目是我为更好地理解 React Router 原理所做的实践，旨在为开发者提供一个简洁的路由解决方案。
-          </p>
-        </section>
-        
-        <section className={styles.project}>
-          <h2>项目地址</h2>
-          <p>
-            这个项目是我在学习 React Router 的过程中，尝试实现其核心功能的过程。
-            你可以在我的 GitHub 上查看该项目的源码，欢迎提出问题、意见或者贡献代码！
-          </p>
-          <a
-            href="https://github.com/Gravity2333/my-react-router"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.projectLink}
-          >
-            查看项目
-          </a>
-        </section>
+      <div className={styles.left}>
+        <img
+          className={styles.avatar}
+          src={AVATOR}
+          alt="Author Avatar"
+        />
+        <h1 className={styles.name}>小刘不知道叫啥</h1>
+        <p className={styles.description}>Web Developer</p>
+      </div>
 
-        <section className={styles.contact}>
-          <h2>联系我</h2>
-          <p>
-            我乐于与大家交流技术和思想，欢迎通过 GitHub 与我联系，或者通过我的博客与我沟通。
-          </p>
+      <div className={styles.right}>
+        <div className={styles.socialLinks}>
           <a
-            href="https://github.com/Gravity2333"
+            href="https://github.com/coderliu"
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.contactLink}
+            className={styles.socialLink}
           >
-            访问我的 GitHub
+            GitHub
           </a>
-        </section>
+          <a
+            href="mailto:coderliu@example.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            Email
+          </a>
+          <a
+            href="weixin://"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            WeChat
+          </a>
+        </div>
+
+        <h2 className={styles.sectionTitle}>Pinned Projects</h2>
+        <div className={styles.projects}>
+          <div className={styles.project}>
+            <h3 className={styles.projectTitle}>Project One</h3>
+            <p className={styles.projectDescription}>
+              A powerful tool for automating workflows.
+            </p>
+            <a
+              href="https://github.com/coderliu/project-one"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.projectLink}
+            >
+              View Project
+            </a>
+          </div>
+          <div className={styles.project}>
+            <h3 className={styles.projectTitle}>Project Two</h3>
+            <p className={styles.projectDescription}>
+              A sleek web app built with React and TypeScript.
+            </p>
+            <a
+              href="https://github.com/coderliu/project-two"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.projectLink}
+            >
+              View Project
+            </a>
+          </div>
+        </div>
+
+        <h2 className={styles.sectionTitle}>Hobbies & Interests</h2>
+        <p className={styles.interests}>
+          In my free time, I enjoy coding, exploring new web technologies, playing video games, and contributing to open source projects.
+        </p>
       </div>
     </div>
   );
 };
 
-export default About;
+export default AboutMe;

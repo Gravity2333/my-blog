@@ -11,9 +11,9 @@ export default {
       name: "首页",
       component: "../src/pages/Home",
       cover: {
-        name: "plant",
+        name: "darkForest",
         title: "blog coderliu",
-        text: "永远不要相信直觉！",
+        text: "不要相信直觉！",
       },
     },
     {
@@ -28,12 +28,12 @@ export default {
     },
     {
       path: "/about",
-      name: "关于",
+      name: "关于作者",
       component: "../src/pages/About",
       cover: {
-        name: "darkForest",
+        name: "plant",
         title: "关于作者",
-        text: "关于作者!",
+        text: "",
       },
     },
     {
