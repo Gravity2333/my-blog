@@ -21,9 +21,9 @@ export default {
       name: "文章",
       component: "../src/pages/Docs",
       cover: {
-        name: "sky",
+        name: "sunrise",
         title: "开发文档",
-        text: "开发文档!",
+        text: "",
       },
     },
     {

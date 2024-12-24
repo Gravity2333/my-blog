@@ -89,14 +89,14 @@ module.exports = {
       filename: "css/[name].[contenthash].css", // 提取的 CSS 文件名
       chunkFilename: "css/[id].css",
     }),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.resolve(__dirname,'./src/assets'),
-    //       to: 'assets'
-    //     }
-    //   ]
-    // })
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname,'./public'),
+          to: ''
+        }
+      ]
+    })
   ],
   devServer: {
     port: 3000,

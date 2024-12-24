@@ -9,6 +9,7 @@
   --main-color: #4a90e2;
   --header-color: #f5f7fa;
   --header-font-color: #808080;
+  --content-bg-color: white;
 }
 * {
   box-sizing: border-box;
