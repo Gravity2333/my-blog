@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./index.less";
-import blogs from './contents/constants'
+import blogs, { CSDNArticles } from './contents/constants'
 import useHistory from "@/libs/router/hooks/useHistory";
 
 const DocPage: React.FC = () => {
@@ -40,6 +40,20 @@ const DocPage: React.FC = () => {
             </div>
           </div>
         })}
+        {
+          CSDNArticles.map((article) => {
+            return <div key={article.title} className={styles.blogItem} onClick={()=>{
+              window.open(article.url)
+            }}>
+              <div className={styles.cover}>
+                <img src={article.cover} alt={article.title} />
+              </div>
+              <div className={styles.info}>
+                <h2 className={styles.blogTitle}>{article.title}</h2>
+              </div>
+            </div>
+          })
+        }
       </div>
     </div>
   );
