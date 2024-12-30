@@ -50,14 +50,35 @@ export default {
           component: "../src/pages/Articles/components/Preview",
         },
         {
-          component: "../src/components/NotFoundPage", 
+          component: "../src/components/NotFoundPage",
           cover: {
             name: "PINEFOREST",
             title: "走错了？",
             text: "history.go(-1)!!",
           },
         },
-      ]
+      ],
+    },
+    {
+      path: "/games",
+      name: "娱乐",
+      component: "../src/layouts/PageLayout",
+      cover: {
+        hide: true,
+      },
+      children: [
+        {
+          path: "/games",
+          redirect: "/games/dino",
+        },
+        {
+          path: "/games/dino",
+          component: "../src/pages/Games/DinoGame",
+          cover: {
+            hide: true,
+          },
+        },
+      ],
     },
     {
       path: "/about",
@@ -70,7 +91,7 @@ export default {
       },
     },
     {
-      component: "../src/components/NotFoundPage", 
+      component: "../src/components/NotFoundPage",
       cover: {
         name: "PINEFOREST",
         title: "走错了？",

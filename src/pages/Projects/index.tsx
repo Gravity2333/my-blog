@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./index.less";
 import { FaSort, FaSearch } from "react-icons/fa";
 import LoadingPage from "@/components/LoadingPage";
-
-export const GIT_TOKEN =
-  "";
+import { getAllProjects } from "@/services/projects";
 
 const ITEMS_PER_PAGE = 6;
 
@@ -20,53 +18,31 @@ const GitLabRepos: React.FC = () => {
 
   useEffect(() => {
     setLoading(true); // Start loading when component mounts or query changes
-    fetch("https://api.github.com/users/Gravity2333/repos", {
-      headers: {
-        Authorization: `Bearer ${GIT_TOKEN}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const sortedRepos = data.sort((a: any, b: any) => {
-          const dateA = new Date(a[sortedBy]).getTime();
-          const dateB = new Date(b[sortedBy]).getTime();
-          return sortDirection === "desc" ? dateB - dateA : dateA - dateB;
-        });
-        setRepos(sortedRepos);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching repos:", error);
-        setRepos([]);
-        setLoading(false);
-      });
+    (async () => {
+      const { success, data } = await getAllProjects(sortedBy, sortDirection);
+      if (success) {
+        setRepos(data);
+      }
+      setLoading(false);
+    })();
   }, [sortedBy, sortDirection, currentPage]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     setCurrentPage(1); // Reset to the first page when searching
     setLoading(true);
-    fetch(
-      `https://api.github.com/search/repositories?q=${searchTerm}+user:Gravity2333`,
-      {
-        headers: {
-          Authorization: `Bearer ${GIT_TOKEN}`,
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setRepos(data.items || []);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error searching repos:", error);
-        setRepos([]);
-        setLoading(false);
-      });
+    const { success, data } = await getAllProjects(
+      sortedBy,
+      sortDirection,
+      searchTerm
+    );
+    if (success) {
+      setRepos(data);
+    }
+    setLoading(false);
   };
 
   const handlePageChange = (page: number) => {

@@ -7,13 +7,11 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <div className={styles.leftSide}>
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
+       
       </div>
       <div className={styles.rightSide}>
         <AuthorInfo />
+        <BlogCard />
       </div>
     </div>
   );

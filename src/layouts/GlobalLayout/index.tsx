@@ -45,13 +45,15 @@ export default function GlobalLayout({ location, match }: any) {
   const regexpMap = useRef<any>(new Map());
 
   useEffect(() => {
-    (async () => {
-      if (coverObj?.cover) {
-        setColorObj(await getThemeColor(coverObj?.cover!));
-      }
-    })();
+    setTimeout(() => {
+      (async () => {
+        if (coverObj?.cover) {
+          setColorObj(await getThemeColor(coverObj?.cover!));
+        }
+      })();
+    }, 100);
   }, [coverObj]);
-  console.log(coverObj);
+console.log(coverObj)
   useEffect(() => {
     setLoading(true);
     for (const r of routes?.children as any[]) {
@@ -67,7 +69,8 @@ export default function GlobalLayout({ location, match }: any) {
           if (
             r.cover.cover !== coverObj?.cover ||
             r.cover.title !== coverObj?.title ||
-            r.cover.text !== coverObj?.text
+            r.cover.text !== coverObj?.text ||
+            r.cover.hide !== coverObj?.hide
           ) {
             setCoverObj(parseRouteCover(r.cover));
           }
@@ -117,7 +120,9 @@ export default function GlobalLayout({ location, match }: any) {
                 <LoadingPage />
               ) : (
                 <>
-                  <GlobalPhtotHeader {...(coverObj as any)} />
+                  {!coverObj?.cover ? <div style={{height: '60px'}}></div> : (
+                    <GlobalPhtotHeader {...(coverObj as any)} />
+                  )}
                   <Outlet />
                 </>
               )}

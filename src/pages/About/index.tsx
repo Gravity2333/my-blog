@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.less"; // 引入CSS模块
 import AVATOR from "../../assets/avator.jpeg";
-import { GIT_TOKEN } from "../Projects";
 import LoadingPage from "@/components/LoadingPage";
+import { getTopProjects } from "@/services/projects";
 
 const AboutMe: React.FC = () => {
   const [pinnedRepos, setPinnedRepos] = useState<any[]>([]);
@@ -10,45 +10,13 @@ const AboutMe: React.FC = () => {
 
   useEffect(() => {
     setLoading(true); // 开始加载
-    const query = `
-    {
-      user(login: "Gravity2333") {
-        pinnedItems(first: 10) {
-          nodes {
-            ... on Repository {
-              id
-              name
-              description
-              url
-              owner {
-                login
-                avatarUrl
-              }
-            }
-          }
-        }
+    (async () => {
+      const { success, data } = await getTopProjects();
+      if (success) {
+        setPinnedRepos(data);
       }
-    }
-    `;
-
-    fetch("https://api.github.com/graphql", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${GIT_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ query }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setPinnedRepos(data.data.user.pinnedItems.nodes);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching pinned repos:", error);
-        setPinnedRepos([]);
-        setLoading(false);
-      });
+      setLoading(false);
+    })();
   }, []);
 
   return (

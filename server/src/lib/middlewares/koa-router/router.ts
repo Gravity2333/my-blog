@@ -148,11 +148,11 @@ class Router implements IRouter {
       const middlewareChain: MiddleWare[] = matched.pathAndMethod.reduce(
         (memo: MiddleWare[], layer) => {
           /** 创建一个中间件用来处理当前layer的信息 */
-          const _middleWare = (ctx: Context, next: Dispatch) => {
+          const _middleWare = async (ctx: Context, next: Dispatch) => {
             // 设置params
             ctx.request.params = layer.params(ctx.path, ctx.request.params);
 
-            next();
+            await next();
           };
           return [...memo, _middleWare, ...layer.stack];
         },
@@ -234,7 +234,6 @@ class Router implements IRouter {
           const paramsMiddleware = this.params[paramName];
           clonedRouter.param(paramName, paramsMiddleware);
         });
-        
       } else {
         /** 非嵌套情况 */
         this.register(path, [], [m]);
@@ -246,7 +245,6 @@ class Router implements IRouter {
 
   /** 返回composed middleware */
   public routes() {
-    console.log(22);
     return this.middleware();
   }
 

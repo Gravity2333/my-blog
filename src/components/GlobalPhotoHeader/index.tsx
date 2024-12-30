@@ -10,6 +10,7 @@ export type CoverParams = {
   cover?: string;
   title?: string;
   text?: string;
+  hide?: boolean;
 };
 
 const GlobalPhtotHeader: React.FC = ({

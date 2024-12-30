@@ -1,38 +1,55 @@
 .leftCard {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+
   .card {
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+
+    &:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .cardTitle {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+      color: #333;
+      text-align: center;
+    }
+
+    .blogList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .blogItem {
+        margin-bottom: 12px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .blogLink {
+          font-size: 1rem;
+          color: #007bff;
+          text-decoration: none;
+          padding: 8px 12px;
+          display: block;
+          border-radius: 8px;
+          transition: background-color 0.3s, color 0.3s;
+
+          &:hover {
+            background-color: #f0f8ff;
+            color: #0056b3;
+          }
+        }
+      }
+    }
   }
-  
-  .card h3 {
-    margin: 0 0 10px;
-    font-size: 18px;
-  }
-  
-  .card ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .card ul li {
-    margin: 10px 0;
-  }
-  
-  .card ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-  }
-  
-  .card ul li a:hover {
-    text-decoration: underline;
-  }
-  
+}
