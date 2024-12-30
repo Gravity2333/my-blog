@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./index.less"; // 引入CSS模块
 import SUNSET from "../../assets/backgrounds/sunset.webp";
+import { __DEFAULT_BACKGROUNDS__ } from "@/assets/backgrounds/desc";
 
 export type CoverParams = {
   cover?: string;
@@ -35,7 +36,7 @@ const GlobalPhtotHeader: React.FC = ({
     <div className={styles.carouselContainer}>
       <Slider {...settings} adaptiveHeight>
         <div className={styles.slide}>
-          <img src={cover} alt="Slide 2" />
+          <img src={(__DEFAULT_BACKGROUNDS__ as any)[cover]} alt="Slide 2" />
           <div key={text} className={styles.textOverlay}>
             <p
               className={`${styles.typingEffect} ${styles["sentence1"]}`}

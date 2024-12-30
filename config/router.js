@@ -30,7 +30,7 @@ export default {
       path: "/articles",
       name: "文章",
       cover: {
-        name: "sunrise",
+        name: "whilteForest",
         title: "博客",
         text: "在无声的文字中留下你与世界互动的痕迹。",
       },

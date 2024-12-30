@@ -107,8 +107,16 @@ module.exports = {
   ],
   devServer: {
     port: 3000,
+    host: '127.0.0.1',
     hot: false,
     historyApiFallback: true, // 开启 historyApiFallback
     open: true,
+    proxy: [
+      {
+        context: ['/api'], // 匹配多个路径
+        target: 'http://127.0.0.1:8888',
+        changeOrigin: true,
+      },
+    ]
   },
 };

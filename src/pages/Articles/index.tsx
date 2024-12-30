@@ -1,59 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.less";
-import blogs, { CSDNArticles } from './contents/constants'
 import useHistory from "@/libs/router/hooks/useHistory";
+import { getAllBlogs } from "@/services/blogs";
+
+const PAGE_SIZE = 10; // 每页显示的博客数量
 
 const DocPage: React.FC = () => {
+  const history = useHistory();
+  const [blogs, setBlogs] = useState<{ name: string; key: string }[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
-  const history = useHistory()
-  // 监听 hash 的变化
   useEffect(() => {
-    // 监听 hash 跳转时自动滚动
-    const handleHashChange = () => {
-      const target = document.getElementById(window.location.hash.slice(1));
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+    (async () => {
+      const { success, data } = await getAllBlogs();
+      if (success) {
+        setBlogs(data);
+        setTotalPages(Math.ceil(data.length / PAGE_SIZE));
       }
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-
-    // 组件卸载时移除监听
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
+    })();
   }, []);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const paginatedBlogs = blogs.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE
+  );
 
   return (
     <div className={styles.container}>
-      <div className={styles.blogList}>
-        {Object.keys(blogs).map((key) => {
-          const blog = blogs[key]
-          return <div key={blog.title} className={styles.blogItem} onClick={()=>{
-            history.push(`/articles/${blog.key}/preview`)
-          }}>
-            <div className={styles.cover}>
-              <img src={blog.cover} alt={blog.title} />
-            </div>
-            <div className={styles.info}>
-              <h2 className={styles.blogTitle}>{blog.title}</h2>
-            </div>
-          </div>
-        })}
-        {
-          CSDNArticles.map((article) => {
-            return <div key={article.title} className={styles.blogItem} onClick={()=>{
-              window.open(article.url)
-            }}>
-              <div className={styles.cover}>
-                <img src={article.cover} alt={article.title} />
-              </div>
-              <div className={styles.info}>
-                <h2 className={styles.blogTitle}>{article.title}</h2>
-              </div>
-            </div>
-          })
-        }
+      <ul className={styles.blogList}>
+        {paginatedBlogs.map((blog) => (
+          <li
+            key={blog.key}
+            className={styles.blogItem}
+            onClick={() => {
+              history.push(`/articles/${blog.key}/preview`);
+            }}
+          >
+            <h2 className={styles.blogTitle}>{blog.name}</h2>
+          </li>
+        ))}
+      </ul>
+      <div className={styles.pagination}>
+        {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+          <button
+            key={page}
+            className={`${styles.pageButton} ${
+              page === currentPage ? styles.active : ""
+            }`}
+            onClick={() => handlePageChange(page)}
+          >
+            {page}
+          </button>
+        ))}
       </div>
     </div>
   );

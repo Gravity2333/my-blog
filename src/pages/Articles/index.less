@@ -1,90 +1,74 @@
-/* 全局容器 */
 .container {
-  padding: 40px;
   width: 90%;
-  margin: 0 auto;
-}
-
-/* 页面标题 */
-.pageTitle {
-  font-size: 36px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 40px;
-  color: #333;
-}
-
-/* 博客列表容器 */
-.blogList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-  padding: 0;
-}
-
-/* 每个博客项 */
-.blogItem {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-}
-
-/* 博客封面图片 */
-.cover {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover img {
-    transform: scale(1.05);
-  }
-}
-
-/* 博客信息区 */
-.info {
+  margin: 20px auto;
   padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 博客标题 */
+.blogList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blogItem {
+  cursor: pointer;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* 鼠标悬浮动画 */
+  &:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
 .blogTitle {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
   color: #333;
-  margin-bottom: 10px;
+  margin: 0;
 }
 
-/* 博客简介 */
-.blogDescription {
-  font-size: 16px;
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 15px;
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-/* 阅读更多链接 */
-.readMore {
-  font-size: 16px;
-  color: #3498db;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+.pageButton {
+  margin: 0 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
 
   &:hover {
-    color: #2980b9;
+    border-color: #007bff;
+    color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  }
+
+  &.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
   }
 }

@@ -7,7 +7,7 @@ const download = require('download'); // 用于下载图片
 const mime = require('mime-types'); // 用于获取文件 MIME 类型
 
 // CSDN 文章 URL
-const articleUrl = 'https://blog.csdn.net/weixin_40710412/article/details/142650640?spm=1001.2014.3001.5501';
+const articleUrl = 'https://blog.csdn.net/weixin_40710412/article/details/126008526';
 
 // 获取文章内容并转换为 Markdown
 const fetchAndConvertToMarkdown = async () => {
@@ -41,7 +41,7 @@ const fetchAndConvertToMarkdown = async () => {
       try {
         // 下载图片
         const buffer = await download(url);
-        
+
         // 获取文件类型，默认为 'image/jpeg'
         const mimeType = mime.lookup(url) || 'image/jpeg';
 
@@ -63,19 +63,16 @@ const fetchAndConvertToMarkdown = async () => {
 
     // 使用 Turndown 将 HTML 转换为 Markdown
     const turndownService = new TurndownService();
-    let markdown = turndownService.turndown(articleContent);
+    const markdown = turndownService.turndown(articleContent);
 
-    // 替换 Markdown 中的 img 标签为 Base64 格式
-    markdown = markdown.replace(/!\[([^\]]*)\]\((http[^\)]+)\)/g, (match, altText, url) => {
-      const dataUri = `data:image/png;base64,${Buffer.from(url, 'utf8').toString('base64')}`;
-      return `![${altText}](${dataUri})`;
-    });
+    // 替换非法文件名字符
+    const safeTitle = articleTitle.replace(/[<>:"/\\|?*\x00-\x1F]/g, '_').slice(0, 100); // 限制长度为100字符以内
+    const markdownFilePath = path.resolve(__dirname, `./src/blogs/${safeTitle}.md`);
 
     // 输出结果到文件
-    const markdownFilePath = path.resolve(__dirname, `./src/pages/Articles/contents/${+new Date()}.md`);
     fs.writeFileSync(markdownFilePath, `# ${articleTitle}\n\n${markdown}`, { encoding: 'utf-8', flag: 'w+' });
 
-    console.log('文章已成功转换为 Markdown，并保存。');
+    console.log(`文章已成功转换为 Markdown，并保存为：${safeTitle}.md`);
   } catch (error) {
     console.error('获取文章内容失败：', error);
   }
