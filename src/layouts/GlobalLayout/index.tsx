@@ -8,6 +8,7 @@ import { getThemeColor } from "@/utils/color";
 import ParticleBackground from "@/components/PartcalBackground";
 import LoadingPage from "@/components/LoadingPage";
 import Header from "./Header";
+import Footer from "@/components/Footer";
 
 export const ThemeContext = createContext<MainColor>({
   dominantColor: "#4a90e2",
@@ -126,6 +127,7 @@ console.log(coverObj)
                   <Outlet />
                 </>
               )}
+                        <Footer/>
             </div>
           </div>
         </ThemeContext.Provider>
