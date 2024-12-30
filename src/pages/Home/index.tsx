@@ -11,7 +11,6 @@ const Home = () => {
         <BlogCard />
         <BlogCard />
         <BlogCard />
-        <BlogCard />
       </div>
       <div className={styles.rightSide}>
         <AuthorInfo />

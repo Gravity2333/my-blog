@@ -4,7 +4,6 @@ import useRouter from "@/hooks/useRouter";
 import MiniBrowser from "@/components/MiniBrowser";
 
 function Embed() {
-  console.log("embed");
   const [outlet, history] = useRouter({
     loadingPage: <LoadingPage />,
     routes: {

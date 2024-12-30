@@ -36,7 +36,7 @@ const GlobalPhtotHeader: React.FC = ({
       <Slider {...settings} adaptiveHeight>
         <div className={styles.slide}>
           <img src={cover} alt="Slide 2" />
-          <div className={styles.textOverlay}>
+          <div key={text} className={styles.textOverlay}>
             <p
               className={`${styles.typingEffect} ${styles["sentence1"]}`}
             >

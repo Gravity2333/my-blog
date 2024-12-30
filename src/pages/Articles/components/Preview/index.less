@@ -1,0 +1,72 @@
+/* Preview.module.less */
+
+/* 容器样式 */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 80vh;
+  }
+  
+  /* 返回按钮样式 */
+  .backButton {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .backButton:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  /* 文章内容容器 */
+  .content {
+    width: 100%;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Markdown 渲染的内容 */
+  .content h1, .content h2, .content h3 {
+    color: #333;
+  }
+  
+  .content p {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .content pre {
+    background-color: #282c34;
+    color: white;
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  
+  /* 代码高亮样式 */
+  .content code {
+    background-color: #f6f8fa;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #24292f;
+    font-family: Monaco, monospace;
+  }
+  

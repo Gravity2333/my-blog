@@ -59,10 +59,14 @@ const AboutMe: React.FC = () => {
         <p className={styles.description}>Web Developer</p>
         <h2 className={styles.sectionTitle}>Hobbies & Interests</h2>
         <div className={styles.interestsContainer}>
-          <p className={styles.interests}>
-            In my free time, I enjoy coding, exploring new web technologies,
-            playing video games, and contributing to open source projects.
-          </p>
+          <ul className={styles.interestsList}>
+            <li>🚴‍♂️ Cycling</li>
+            <li>🏃‍♂️ Marathon Running</li>
+            <li>🏊‍♂️ Triathlon</li>
+            <li>🏞️ Trail Running</li>
+            <li>📸 Photography</li>
+            <li>🚗 Driving</li>
+          </ul>
         </div>
       </div>
 

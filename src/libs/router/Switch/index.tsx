@@ -21,14 +21,21 @@ export default function Switch({
         /** 找到第一个匹配的route */
         children?.forEach((child) => {
           if (!matchedChild) {
-            const { exact, sensitive } = child.props; // from 处理redirect
-            const path = child.props?.path || child.props?.from;
+            const { exact, sensitive, from } = child.props; // from 处理redirect
+            const path = child.props?.path || from;
+
             matchedChild = path
               ? matchPath(location.pathname, {
-                  path: path,
-                  exact: child.props?.from ? true : exact,
-                  sensitive,
-                })
+                path: path,
+                exact: (() => {
+                  if (from) {
+                    /** redirect的情况下 要求exact:true */
+                    return true;
+                  }
+                  return !child || exact; /** 有childElem 就模糊匹配 */
+                })(),
+                sensitive,
+              })
               : match;
             if (matchedChild) {
               element = child;
@@ -37,7 +44,7 @@ export default function Switch({
         });
         //  重新设置props
         return matchedChild
-          ? React.cloneElement(element!, { location, computedMatch: match })
+          ? React.cloneElement(element!, { location, computedMatch: matchedChild })
           : null;
       }}
     </RouterContext.Consumer>
