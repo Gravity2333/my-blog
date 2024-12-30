@@ -11,7 +11,7 @@ export default {
       name: "首页",
       component: "../src/pages/Home",
       cover: {
-        name: "sea",
+        name: "smokeForest",
         title: "blog coderliu",
         text: "没什么是理所应当的，不要相信直觉！",
       },
