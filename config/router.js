@@ -11,7 +11,7 @@ export default {
       name: "首页",
       component: "../src/pages/Home",
       cover: {
-        name: "plant",
+        name: "sea",
         title: "blog coderliu",
         text: "没什么是理所应当的，不要相信直觉！",
       },
@@ -60,12 +60,36 @@ export default {
       ],
     },
     {
+      path: "/tools",
+      name: "工具箱",
+      component: "../src/layouts/PageLayout",
+      cover: {
+        name: "birdge",
+        title: "工具箱",
+        text: ''
+      },
+      children: [
+        {
+          path: "/tools",
+          redirect: "/tools/sql-formatter",
+        },
+        {
+          path: "/tools/sql-formatter",
+          name: "SQL格式化",
+          component: "../src/pages/Tools/SqlFormatter",
+        },
+        {
+          path: "/tools/json-formatter",
+          name: "JSON格式化",
+          component: "../src/pages/Tools/JSONFormatter",
+        },
+      ],
+    },
+    {
       path: "/games",
       name: "娱乐",
       component: "../src/layouts/PageLayout",
-      cover: {
-        hide: true,
-      },
+      cover: {},
       children: [
         {
           path: "/games",
@@ -73,6 +97,7 @@ export default {
         },
         {
           path: "/games/dino",
+          name: "小恐龙",
           component: "../src/pages/Games/DinoGame",
           cover: {
             hide: true,

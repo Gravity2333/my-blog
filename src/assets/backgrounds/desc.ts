@@ -9,6 +9,9 @@ import LIFE from "!!file-loader?name=static/[name].[ext]!./pexels.jpg";
 import SUNRISE from "!!file-loader?name=static/[name].[ext]!./sunrise.jpg";
 import Code from "!!file-loader?name=static/[name].[ext]!./code.jpg";
 import PINEFOREST from "!!file-loader?name=static/[name].[ext]!./pine-forest.jpg";
+import BRIDGE from "!!file-loader?name=static/[name].[ext]!./bridge.svg";
+import SEA from "!!file-loader?name=static/[name].[ext]!./sea.jpg";
+import MOON from "!!file-loader?name=static/[name].[ext]!./moon.jpg";
 
 export const __DEFAULT_BACKGROUNDS__ = {
   sky: SKY,
@@ -21,5 +24,8 @@ export const __DEFAULT_BACKGROUNDS__ = {
   sunrise: SUNRISE,
   mountain: TURBINES,
   code: Code,
-  PINEFOREST:PINEFOREST
+  PINEFOREST:PINEFOREST,
+  birdge: BRIDGE,
+  sea:SEA,
+  moon: MOON,
 };
