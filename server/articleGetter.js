@@ -7,7 +7,7 @@ const download = require('download'); // 用于下载图片
 const mime = require('mime-types'); // 用于获取文件 MIME 类型
 
 // CSDN 文章 URL
-const articleUrl = 'https://blog.csdn.net/weixin_40710412/article/details/126008526';
+const articleUrl = 'https://blog.csdn.net/weixin_40710412/article/details/145553550?spm=1001.2014.3001.5502';
 
 // 获取文章内容并转换为 Markdown
 const fetchAndConvertToMarkdown = async () => {
